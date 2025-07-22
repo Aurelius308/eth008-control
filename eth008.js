@@ -3,23 +3,21 @@ Requirements
 1. pressing the "on" button turns the relay on
 2. pressing the "off" button turns the relay off
 3. (Completed) pressing the AIU/ODU buttons gives an error
-4. show only the PDU that control is being changed (mimic BY)
+4. show only the PDU that control is being changed (mimic BY?)
 5. pull whatever status available (most likely only 400A)
 
 6. determine if login is necessary
     NO - Need to set proxy server to satisfy CORS
     YES - Need to research how to do so
+        Seems to work without doing so. Just throws an err in the console but controls still work.
 
 UPDATES:
 
 */
 
-//IP addresses for the two PDUs in a system (change these per the system IP scheme)
-const pdu1IP = "10.10.10.134"
-const pdu2IP = "10.10.10.135"
-
 //Status polling
 
+/*
 async function pollRelayStatus(ip) {
       try {
         const response = await fetch(`http://${ip}/status.xml`);
@@ -49,190 +47,18 @@ async function pollRelayStatus(ip) {
     // Start polling every 5 seconds
     pollRelayStatus(pdu1IP);
     setInterval(() => pollRelayStatus(pdu1IP), 5000);
+*/
+//PDU Relay controls
 
-//PDU 1 Relay controls
-
-async function pdu1R1on(){
+async function pduControl(pduIP, relayNum, relayState){
     try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=1&state=0`);
+        const response = await fetch(`http://${pduIP}/io.cgi?relay=${relayNum}&state=${relayState}`);
         if (!response.ok) throw new Error("Operation failed, try again");
+        window.alert(`Relay ${relayNum} for ${pduIP} status changed.`);
         console.log("Relay turned on.");
     } catch(e){
         console.error("Error:", e);
-    }
-}
-async function pdu1R1off(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=1&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R2on(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=2&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R2off(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=2&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R3on(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=3&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R3off(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=3&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R4on(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=4&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R4off(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=4&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R5on(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=5&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R5off(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=5&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R6on(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=6&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R6off(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=6&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R7on(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=7&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R7off(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=7&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R8on(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=8&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu1R8off(){
-    try{ 
-        const response = await fetch(`http://${pdu1IP}/io.cgi?relay=8&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-
-//PDU 2 relay controls
-
-async function pdu2R1on(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=1&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu2R1off(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=1&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu2R2on(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=2&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu2R2off(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=2&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
+        window.alert(`Error trying to switch ${relayNum}.`)
     }
 }
 
@@ -243,102 +69,5 @@ Will display alert.
 function AIUbutton(){
     window.alert(`This relay is on and should remain on to prevent loss of connection to outdoor equipment. 
 
-        This relay being turned off will require physical remedies.`);
+    This relay being turned off will require physical intervention to fix.`);
 }
-
-async function pdu2R4on(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=4&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu2R4off(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=4&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu2R5on(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=5&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu2R5off(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=5&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu2R6on(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=6&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu2R6off(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=6&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu2R7on(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=7&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu2R7off(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=7&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu2R8on(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=8&state=0`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-async function pdu2R8off(){
-    try{ 
-        const response = await fetch(`http://${pdu2IP}/io.cgi?relay=8&state=1`);
-        if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned off.");
-    } catch(e){
-        console.error("Error:", e);
-    }
-}
-
-
-
-
-
-
