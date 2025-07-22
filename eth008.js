@@ -68,4 +68,5 @@ function AIUbutton(){
     window.alert(`This relay is on and should remain on to prevent loss of connection to outdoor equipment. 
 
     This relay being turned off will require physical intervention to fix.`);
+    console.log("something something something bad")
 }
