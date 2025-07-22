@@ -4,11 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Outdoor PDU Controls</title>
-    <!--- 
-    Use this after the finishing the code
-
     <link href="style.css" rel="stylesheet">
-    --->
 </head>
 
 <body>
@@ -16,8 +12,8 @@
         <h1>Outdoor PDU Controls</h1>
     </header>
     <main>
-        <h2 id="ant_1_pdu">Antenna 1 PDU</h2>
-            <div class="pdu1_controls">
+        <h2 class="ant1Pdu">Antenna 1 PDU</h2>
+            <div class="pdu1Controls">
                 <h3>Antenna 1 ACU</h3>
                     <button id="pdu1Relay1On" class="relayBtn" onclick="pduControl(`10.10.10.134`, 1, 0)">On</button>
                     <button id="pdu1Relay1Off" class="relayBtn" onclick="pduControl(`10.10.10.134`, 1, 1)">Off</button>
@@ -43,8 +39,8 @@
                     <button id="pdu1Relay8On" class="relayBtn" onclick="pduControl(`10.10.10.134`,8 , 0)">On</button>
                     <button id="pdu1Relay8Off" class="relayBtn" onclick="pduControl(`10.10.10.134`, 8, 1)">Off</button>
             </div>
-        <h2 id="ant_2_pdu">Antenna 2 PDU</h2>
-            <div class="pdu2_controls">
+        <h2 class="ant2Pdu">Antenna 2 PDU</h2>
+            <div class="pdu2Controls">
                 <h3>Antenna 2 ACU</h3>
                     <button id="pdu2Relay1On" class="relayBtn" onclick="pduControl(`10.10.10.135`, 1, 0)">On</button>
                     <button id="pdu2Relay1Off" class="relayBtn" onclick="pduControl(`10.10.10.135`, 1, 1)">Off</button>
