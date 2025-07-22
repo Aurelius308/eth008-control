@@ -54,7 +54,7 @@ async function pduControl(pduIP, relayNum, relayState){
     try{ 
         const response = await fetch(`http://${pduIP}/io.cgi?relay=${relayNum}&state=${relayState}`);
         if (!response.ok) throw new Error("Operation failed, try again");
-        console.log("Relay turned on.");
+        console.log(`Successfully switched relay ${relayNum}.`);
     } catch(e){
         console.error("Error:", e);
     }
