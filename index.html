@@ -9,20 +9,6 @@
 
     <link href="style.css" rel="stylesheet">
     --->
-    <style>
-    .relay {
-      display: inline-block;
-      width: 100px;
-      padding: 10px;
-      margin: 5px;
-      border-radius: 8px;
-      text-align: center;
-      font-weight: bold;
-      color: white;
-    }
-    .on { background-color: green; }
-    .off { background-color: red; }
-  </style>
 </head>
 
 <body>
@@ -33,56 +19,56 @@
         <h2 id="ant_1_pdu">Antenna 1 PDU</h2>
             <div class="pdu1_controls">
                 <h3>Antenna 1 ACU</h3>
-                    <button id="pdu1Relay1On" class="relayBtn" onclick="pdu1R1on()">On</button>
-                    <button id="pdu1Relay1Off" class="relayBtn" onclick="pdu1R1off()">Off</button>
+                    <button id="pdu1Relay1On" class="relayBtn" onclick="pduControl(`10.10.10.134`, 1, 0)">On</button>
+                    <button id="pdu1Relay1Off" class="relayBtn" onclick="pduControl(`10.10.10.134`, 1, 1)">Off</button>
                 <h3>Relay 2</h3>
-                    <button id="pdu1Relay2On" class="relayBtn" onclick="pdu1R2on()">On</button>
-                    <button id="pdu1Relay2Off" class="relayBtn" onclick="pdu1R2off()">Off</button>
+                    <button id="pdu1Relay2On" class="relayBtn" onclick="pduControl(`10.10.10.134`, 2, 0)">On</button>
+                    <button id="pdu1Relay2Off" class="relayBtn" onclick="pduControl(`10.10.10.134`, 2, 1)">Off</button>
                 <h3>Relay 3</h3>
-                    <button id="pdu1Relay3On" class="relayBtn" onclick="pdu1R3on()">On</button>
-                    <button id="pdu1Relay3Off" class="relayBtn" onclick="pdu1R3off()">Off</button>
+                    <button id="pdu1Relay3On" class="relayBtn" onclick="pduControl(`10.10.10.134`, 3, 0)">On</button>
+                    <button id="pdu1Relay3Off" class="relayBtn" onclick="pduControl(`10.10.10.134`, 3, 1)">Off</button>
                 <h3>Relay 4</h3>
-                    <button id="pdu1Relay4On" class="relayBtn" onclick="pdu1R4on()">On</button>
-                    <button id="pdu1Relay4Off" class="relayBtn" onclick="pdu1R4off()">Off</button>
+                    <button id="pdu1Relay4On" class="relayBtn" onclick="pduControl(`10.10.10.134`, 4, 0)">On</button>
+                    <button id="pdu1Relay4Off" class="relayBtn" onclick="pduControl(`10.10.10.134`, 4, 1)">Off</button>
                 <h3>Relay 5</h3>
-                    <button id="pdu1Relay5On" class="relayBtn" onclick="pdu1R5on()">On</button>
-                    <button id="pdu1Relay5Off" class="relayBtn" onclick="pdu1R5off()">Off</button>
+                    <button id="pdu1Relay5On" class="relayBtn" onclick="pduControl(`10.10.10.134`, 5, 0)">On</button>
+                    <button id="pdu1Relay5Off" class="relayBtn" onclick="pduControl(`10.10.10.134`, 5, 1)">Off</button>
                 <h3>Relay 6</h3>
-                    <button id="pdu1Relay6On" class="relayBtn" onclick="pdu1R6on()">On</button>
-                    <button id="pdu1Relay6Off" class="relayBtn" onclick="pdu1R6offv">Off</button>
+                    <button id="pdu1Relay6On" class="relayBtn" onclick="pduControl(`10.10.10.134`, 6, 0)">On</button>
+                    <button id="pdu1Relay6Off" class="relayBtn" onclick="pduControl(`10.10.10.134`, 6, 1)">Off</button>
                 <h3>Antenna 1 Ku BUC</h3>
-                    <button id="pdu1Relay7On" class="relayBtn" onclick="pdu1R7on()">On</button>
-                    <button id="pdu1Relay7Off" class="relayBtn" onclick="pdu1R7off()">Off</button>
+                    <button id="pdu1Relay7On" class="relayBtn" onclick="pduControl(`10.10.10.134`, 7, 0)">On</button>
+                    <button id="pdu1Relay7Off" class="relayBtn" onclick="pduControl(`10.10.10.134`, 7, 1)">Off</button>
                 <h3>Antenna 1 C BUC</h3>
-                    <button id="pdu1Relay8On" class="relayBtn" onclick="pdu1R8on()">On</button>
-                    <button id="pdu1Relay8Off" class="relayBtn" onclick="pdu1R8off()">Off</button>
+                    <button id="pdu1Relay8On" class="relayBtn" onclick="pduControl(`10.10.10.134`,8 , 0)">On</button>
+                    <button id="pdu1Relay8Off" class="relayBtn" onclick="pduControl(`10.10.10.134`, 8, 1)">Off</button>
             </div>
         <h2 id="ant_2_pdu">Antenna 2 PDU</h2>
             <div class="pdu2_controls">
                 <h3>Antenna 2 ACU</h3>
-                    <button id="pdu2Relay1On" class="relayBtn" onclick="pdu2R1on()">On</button>
-                    <button id="pdu2Relay1Off" class="relayBtn" onclick="pdu2R1off()">Off</button>
+                    <button id="pdu2Relay1On" class="relayBtn" onclick="pduControl(`10.10.10.135`, 1, 0)">On</button>
+                    <button id="pdu2Relay1Off" class="relayBtn" onclick="pduControl(`10.10.10.135`, 1, 1)">Off</button>
                 <h3>Relay 2</h3>
-                    <button id="pdu2Relay2On" class="relayBtn" onclick="pdu2R2on()">On</button>
-                    <button id="pdu2Relay2Off" class="relayBtn" onclick="pdu2R2off()">Off</button>
-                <h3>AIU/ODU</h3>
+                    <button id="pdu2Relay2On" class="relayBtn" onclick="pduControl(`10.10.10.135`, 2, 0)">On</button>
+                    <button id="pdu2Relay2Off" class="relayBtn" onclick="pduControl(`10.10.10.135`, 2, 1)">Off</button>
+                <h3>AIU/ODU</h3><!--Should not be able to switch this off-->
                     <button id="AIUOn" class="relayBtn" onclick="AIUbutton()">On</button>
                     <button id="AIUOff" class="relayBtn" onclick="AIUbutton()">Off</button>
                 <h3>Relay 4</h3>
-                    <button id="pdu2Relay4On" class="relayBtn" onclick="pdu2R4on()">On</button>
-                    <button id="pdu2Relay4Off" class="relayBtn" onclick="pdu2R4off()">Off</button>
+                    <button id="pdu2Relay4On" class="relayBtn" onclick="pduControl(`10.10.10.135`, 4, 0)">On</button>
+                    <button id="pdu2Relay4Off" class="relayBtn" onclick="pduControl(`10.10.10.135`, 4, 1)">Off</button>
                 <h3>Relay 5</h3>
-                    <button id="pdu2Relay5On" class="relayBtn" onclick="pdu2R5on()">On</button>
-                    <button id="pdu2Relay5Off" class="relayBtn" onclick="pdu2R5off()">Off</button>
+                    <button id="pdu2Relay5On" class="relayBtn" onclick="pduControl(`10.10.10.135`, 5, 0)">On</button>
+                    <button id="pdu2Relay5Off" class="relayBtn" onclick="pduControl(`10.10.10.135`, 5, 1)">Off</button>
                 <h3>Relay 6</h3>
-                    <button id="pdu2Relay6On" class="relayBtn" onclick="pdu2R6on()">On</button>
-                    <button id="pdu2Relay6Off" class="relayBtn" onclick="pdu2R6off()">Off</button>
+                    <button id="pdu2Relay6On" class="relayBtn" onclick="pduControl(`10.10.10.135`, 6, 0)">On</button>
+                    <button id="pdu2Relay6Off" class="relayBtn" onclick="pduControl(`10.10.10.135`, 6, 1)">Off</button>
                 <h3>Antenna 2 Ku BUC</h3>
-                    <button id="pdu2Relay7On" class="relayBtn" onclick="pdu2R7on()">On</button>
-                    <button id="pdu2Relay7Off" class="relayBtn" onclick="pdu2R7off()">Off</button>
+                    <button id="pdu2Relay7On" class="relayBtn" onclick="pduControl(`10.10.10.135`, 7, 0)">On</button>
+                    <button id="pdu2Relay7Off" class="relayBtn" onclick="pduControl(`10.10.10.135`, 7, 1)">Off</button>
                 <h3>Antenna 2 C BUC</h3>
-                    <button id="pdu2Relay8On" class="relayBtn" onclick="pdu2R8on()">On</button>
-                    <button id="pdu2Relay8Off" class="relayBtn" onclick="pdu2R8off()">Off</button>
+                    <button id="pdu2Relay8On" class="relayBtn" onclick="pduControl(`10.10.10.135`, 8, 0)">On</button>
+                    <button id="pdu2Relay8Off" class="relayBtn" onclick="pduControl(`10.10.10.135`, 8, 1)">Off</button>
             </div>
         <div class="statusDiv">
             <h2>PDU 1 Relay Status</h2>
