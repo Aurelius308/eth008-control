@@ -50,11 +50,12 @@ async function pollRelayStatus(ip) {
 */
 //PDU Relay controls
 
-async function pduControl(pduIP, relayNum, relayState){
+async function pduControl(pdu, relayNum, relayState){
     try{ 
-        const response = await fetch(`http://${pduIP}/io.cgi?relay=${relayNum}&state=${relayState}`);
+        const response = await fetch(`${pdu}/io.cgi?relay=${relayNum}&state=${relayState}`);
         if (!response.ok) throw new Error("Operation failed, try again");
         console.log(`Successfully switched relay ${relayNum}.`);
+        window.alert(`Successfully switched relay ${relayNum}.`);
     } catch(e){
         console.error("Error:", e);
     }
