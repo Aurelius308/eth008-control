@@ -15,7 +15,7 @@ UPDATES:
 
 */
 
-//Status polling
+//Status polling (Have not tested this yet. Will need additional time with ETH008 relay board)
 
 /*
 async function pollRelayStatus(ip) {
