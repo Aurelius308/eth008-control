@@ -1,12 +1,10 @@
 # eth008-control
 # Files to control eth008 relay board.
 
-# File will be held on a Raspberry Pi 3B+ running Ubuntu (version #)
+File will be held on a Raspberry Pi 3B+ running Rasbian
 # Required SW:
-#   Ubuntu Ver
-#   Apache 2
-#   python
+Apache2
 
 # Pi will hold the HTML/CSS/JS and proxy
-#   proxy is needed to satisfy CORS
+Apache2 proxy is needed to satisfy CORS
 
